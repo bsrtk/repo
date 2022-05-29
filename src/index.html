@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <title>MyFiles</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    h2{
+      background-color:cyan;
+      color:red;
+    }
+    body{
+      background-color:khaki;
+     
+    }
+  </style>
+</head>
+<body ng-app="myApp" ng-controller="myControl">
+
+
+     <h2 ng-style="test1">NASIL BİR EĞİTİM İSTERDİNİZ?</h2>
+     <hr/>
+     <h3>Aşagıdaki seçeneklerden size uygun olanları seçiniz:)</h3>
+     <p>Okulunuzda hangi dilin veya dillerin eğitimini görmek isterdiniz?</p>
+     <label><input type="radio" ng-model="test" value="en"/>İngilizce</label>
+     <label><input type="radio" ng-model="test1" value="gr"/>Almanca</label>
+     <label><input type="radio" ng-model="test2" value="fr"/>fransızca</label>
+     <label><input type="radio" ng-model="test3" value="is"/>İspanyolca</label>
+     <label><input type="radio" ng-model="test4" value="kr"/>korece</label>
+     <br/><br/>
+     <p>Okulunuzda eksik bulduğunuz en önemli 3 özelliği yazınız.</p>
+     <textarea id="comment" name="comment" style="overflow:hidden; overflow-wrap:break-word; resize:none; height:150px; width:420px;" placeholder="yorumunuzu buraya yazınız..."></textarea>
+     <br/><br/>
+     <p>Pandemi dolayısıyla eğitimde bir takım aksaklıklar meydana gelmişti ve birçok öğrenci bunu kendi imkanları<br/>
+     doğrultusunda halletmeye çalışmıştı siz olsan hangi seçenekle devam etmek isterdiniz lütfen bir tane tercih yapınız.</p>
+     <label><input type="radio" ng-model="pandemi" value="tm"/>Uzaktan eğitime devam edilmeliydi</label>
+     <label><input type="radio" ng-model="pandemi" value="dvm"/>Uzaktan eğitim yüzyüze eğitimin yerini tutamaz</label>
+     <br/><br/>
+     <p>Okulunuzda verilen ders sayısı sizce kaç olmalıdır? Ve bunlara ilaveten bir ders ekleyecek olsaydınız bu hangi ders olurdu? Neden?</p>
+     <input type="radio" ng-model="school" value="sc"/>8
+     <input type="radio" ng-model="school" value="sr"/>10
+     <input type="radio" ng-model="school" value="st"/>12
+     <input type="radio" ng-model="school" value="sy"/>14
+     <br/><br/>
+     <textarea id="comment" name="comment" style="overflow:hidden; overflow-wrap:break-word; resize:none; height:150px; width:420px;" placeholder="Lüten cevabınızı buraya yazınız..."></textarea>
+     <br/><br/>
+     <p>Nasıl bir eğitim sistemini tercih ederdiniz?</p>
+     <label><input type="checkbox" ng-model="text0" ng-checked="false"/>Ezbere dayalı bir eğitim sistemini tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text1" ng-checked="false"/>El becerisinin çoğunlukta olduğu uygulamanın fazla olduğu bir eğitim sistemini tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text2" ng-checked="false"/>Mantığa dayalı bir eğitim sistemini tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text3" ng-checked="false"/>Her şeyin en temelden görülmeye başlandığı eğitim sistemini tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text4" ng-checked="false"/>Bir fen lisesinde okumayı sıralama yapmış iyi bir anadolu lisesine tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text5" ng-checked="false"/>Yurtdışında bir üniversitede okumayı Türkiye'de iyi bir üniversitede okumaya tercih ederim.</label><br/>
+     <label><input type="checkbox" ng-model="text6" ng-checked="false"/>Eğitim sistemini baştan sona yenilenmesini tercih ederim.</label><br/>
+     <p ng-show="false">Vermiş olduğunuz bilgiler için teşekürler</p>
+     <br/><br/>
+     <h2 ng-style="test2">ŞİMDİ LÜTFEN KENDİNİZİ TANITINIZ:)</h2>
+     <hr/>
+     Adınızı giriniz:<input type="text" placeholder="Lütfen adınızı giriniz..." ng-model="name"/>
+     <p ng-hide="name">Kullanıcı adı boş bırakılamaz.</p><br/><br/>
+     Soyadınızı giriniz:<input type="text" placeholder="Lütfen soyadınızı giriniz..." ng-model="username"/>
+     <p ng-hide="username">Kullanıcı soyadı boş bırakılamaz.</p>
+     <br/><br/>
+     Lütfen formu doldurmuş olduğunuz tarihi yazınız.<input type="date"/>
+     <br/><br/>
+     <form ng-submit="changeMessage()">
+        Email:<input type="email" placeholder="E-posta adresiniz...">
+        <input type="submit"/>
+        <p>{{message}}</p>
+     </form>
+
+     <p>Bu anketin amacı genel duruma bakmak ve ne istediğinizi bilmekti aslında ama sadece şunu söylemek isterim ki mevcut durum ne olursa olsun sistem ne kadar hatalı olursa olsun bizim tek ve en önemli yapmamız gereken durum çalışmak umarım emeklerinizin karşılıksız kalmayacağı bir hayat yaşarsınız.</p>
+
+
+     <p><a target="_blank" ng-href="{{link}}">Linkedin</a></p>
+     <script>
+       var app=angular.module("myApp", []);
+       app.controller("myControl",function ($scope){
+
+       });
+       var app= angular.module("myApp",[]);
+       app.controller("myControl",function($scope){
+           $scope.name=" ";
+           $scope.username=" ";
+          
+       });
+       var app= angular.module("myApp",[]);
+       app.controller("myControl",function($scope){
+       $scope.link="https://github.com/bsrtk/app";
+       });
+       </script>
+</body>
+</html>
